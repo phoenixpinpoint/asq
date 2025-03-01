@@ -1,12 +1,12 @@
 #include "asq.h"
 
-bool asq_init(asq_t *asq) {
-  asq = malloc(sizeof(asq_t));
+asq_t *asq_init(asq_t *asq) {
   if (asq) {
-    asq->length = 0;
-    return true;
+    asq->size = 0;
+    asq->capacity = ASQ_DEFAULT_SIZE;
+    return asq;
   }
-  return false;
+  return 0;
 }
 
 bool asq_add(asq_t *asq, void *item) { return false; }
