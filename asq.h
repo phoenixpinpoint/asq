@@ -10,13 +10,21 @@
 #endif
 
 typedef struct asq_t {
-  void *items[ASQ_DEFAULT_SIZE];
+  void **items;
   size_t size;
   size_t capacity;
 } asq_t;
 
 asq_t *asq_init(asq_t *asq);
 
-bool asq_add(asq_t *asq, void *item);
+asq_t *asq_init_with_size(asq_t *asq, size_t size);
+
+void asq_deinit(asq_t *asq);
+
+asq_t *asq_double(asq_t *asq);
+
+asq_t *asq_half(asq_t *asq);
+
+asq_t *asq_add(asq_t *asq, void *item);
 
 #endif // ASQ_H
